@@ -9,9 +9,10 @@ SCOPES = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive"
 ]
-import json
-creds_dict = json.loads(st.secrets["GOOGLE_CREDENTIALS"])
-creds = Credentials.from_service_account_info(creds_dict, scopes=SCOPES)
+creds = Credentials.from_service_account_info(
+    st.secrets["GOOGLE_CREDENTIALS"],
+    scopes=SCOPES
+)
 client = gspread.authorize(creds)
 
 SHEET_ID = "1q4SUC84NpabBQtvMddbouVqwzSUMg7m_r-P48D2Xbn8"  # ← jangan lupa ganti!
